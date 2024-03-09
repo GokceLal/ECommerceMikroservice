@@ -1,0 +1,4 @@
+rootProject.name = 'ECommerceMikroservice'
+include 'Auth-Service'
+include 'User-Service'
+
