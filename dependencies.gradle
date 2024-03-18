@@ -6,10 +6,11 @@ ext{
             mapstruct               : '1.5.5.Final',
             openApi                 : '2.3.0',
             postgresql              : '42.7.1',
-            springCloud             : '4.1.0',
+            springCloud             : '4.1.0'
+
             //jwt                     : '4.4.0',
             //postgresql              : '42.7.1',
-            //springCloud             : '4.1.0'
+
 
 
     ]
@@ -24,5 +25,8 @@ ext{
             openApi                             : "org.springdoc:springdoc-openapi-starter-webmvc-ui:${versions.openApi}",
             postgreSQL                          : "org.postgresql:postgresql:${versions.postgresql}",
             springCloudOpenFeign                : "org.springframework.cloud:spring-cloud-starter-openfeign:${versions.springCloud}",
+            springCloudConfig                   : "org.springframework.cloud:spring-cloud-starter-config:${versions.springCloud}",
+            springCloudConfigServer             : "org.springframework.cloud:spring-cloud-config-server:${versions.springCloud}",
+            springCloudConfigClient             : "org.springframework.cloud:spring-cloud-config-client:${versions.springCloud}"
     ]
 }

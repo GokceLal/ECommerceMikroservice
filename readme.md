@@ -240,13 +240,6 @@ spring:
     bileleşenlere karşılık gelen Volume kavramı bir pod un içinden kubenetes cluster içine alınabilir. Böylece pod
     ayağa kalkarken kendisine tahsis edilen Volume a bağlanarak verilerini oradan çekebilir.
 
-##    
-
-    AA - ghp_1mejOFCl5f8Ih
-
-    BB - x2LKo2mC2F8u
-
-    CC - Hnywk4DDaYN
 
 
 ## BİR PROGRAMCI NELERİ ANADİLİ GİBİ BİLMEK ZORUNDA

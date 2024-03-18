@@ -65,3 +65,15 @@ v
 FAuth-Service/src/main/java/com/example/manager/UserProfileManager.java,1/e/1eb5652e9f751188761ac585bf85af2bb263b2a9
 |
 LUser-Service/src/main/java/com/example/dto/request/UserUpdateRequestDto.java,d/d/dd185247db0cdbf2f7fc497f94ed94db5f367b76
+I
+ConfigServer/build.gradle,f/a/fa11b4e11818f8908a8d4af4bec40b2e95070692
+`
+0ConfigServer/src/main/java/com/example/Main.java,5/a/5a920540705c7fa9039fc2854ddeffacba74596b
+s
+CConfigServer/src/main/java/com/example/ConfigServerApplication.java,0/3/03601e5e139bf0ee1286133148b623711b66d420
+L
+ConfigServerGit/build.gradle,0/6/06794e4c2b85afa762623c1b8c8519b4ee996cc0
+c
+3ConfigServerGit/src/main/java/com/example/Main.java,b/f/bf425ee77697688c99c8f1a8457ae0c9db90e5f9
+y
+IConfigServerGit/src/main/java/com/example/ConfigServerGitApplication.java,d/8/d81e6603bcadfe88000213b971212e658a7fb624
