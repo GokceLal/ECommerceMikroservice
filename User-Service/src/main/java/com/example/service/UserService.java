@@ -7,21 +7,35 @@ import com.example.exception.ErrorType;
 import com.example.exception.UserServiceException;
 import com.example.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.mapstruct.control.MappingControl;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class UserService {
     private final UserRepository userRepository;
+    private final CacheManager cacheManager;
+
     public void save(UserSaveRequestDto dto){
         userRepository.save(User.builder()
                         .userName(dto.getUserName())
                         .email(dto.getEmail())
                         .authId(dto.getAuthId())
                 .build());
+
+
+        /**
+         * Bu işlem exception fırlatabilir bu nedenle Object null kontrolu
+         */
+        Objects.requireNonNull(cacheManager.getCache("user-find-all")).clear();
+
     }
 
     public void update(UserUpdateRequestDto dto) {
@@ -45,6 +59,21 @@ public class UserService {
         updateUser.setPhoto(dto.getPhoto());
         updateUser.setPhone(dto.getPhone());
         userRepository.save(updateUser);
+        Objects.requireNonNull(cacheManager.getCache("user-find-all")).clear();
 
+    }
+@Cacheable(value = "user-find-all")
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
+@Cacheable(value = "get-string")
+    public String getString(String ad){
+        String createString = ad.toUpperCase().concat(" Merhaba");
+        try {
+            Thread.sleep(3000L);
+        }catch (Exception e){
+            log.error(e.getMessage());
+        }
+        return createString;
     }
 }

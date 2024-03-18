@@ -46,6 +46,7 @@ allprojects {
         implementation          libs.openApi
         implementation          libs.mapstruct
         annotationProcessor     libs.mapstructProcessor
+        implementation          libs.jwt
 
     }
     test{

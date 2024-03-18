@@ -12,7 +12,8 @@ spring:
           default-label: "main"
           skip-ssl-validation: true
           username: "GokceLal"
-          password: ""
+          password: ${GIT_KEY} #bu bilgiyi git işletim sisteminin environment veritabanından al
+
 
 
 

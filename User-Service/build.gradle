@@ -6,4 +6,7 @@ buildscript {
 
 dependencies {
     implementation libs.springBootStarterDataMongoDB
+    implementation libs.springCloudConfigClient
+    implementation libs.springBootStarterDataRedis
+
 }

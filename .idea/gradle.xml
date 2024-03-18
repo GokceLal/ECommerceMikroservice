@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/Auth-Service" />
             <option value="$PROJECT_DIR$/ConfigServer" />
             <option value="$PROJECT_DIR$/ConfigServerGit" />
+            <option value="$PROJECT_DIR$/ElasticService" />
             <option value="$PROJECT_DIR$/User-Service" />
           </set>
         </option>

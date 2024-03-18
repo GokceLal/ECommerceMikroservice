@@ -92,7 +92,7 @@ eCommerceMongoDB --> Bizim DockerDestop adı
 ## Docker üzerinde Redis Single Node oluşturmak
 
 ```bash
-    docker run --name java13-redis -p 6379:6379 -d redis
+    docker run --name eCommerce-redis -p 6379:6379 -d redis
 ```
 
 ```bash
@@ -141,15 +141,15 @@ public class RedisConfig {
 ## ElasticSearch Kurulumu ve Kullanımı
 
 ```bash
-    docker network create java13-network
+    docker network create eCommerce-network
 ```
 
 ```bash
-    docker run -d --name elasticsearch --net java13-network -p 9200:9200 -p 9300:9300 -e "xpack.security.enabled=false" -e "xpack.security.transport.ssl.enabled=false" -e "discovery.type=single-node" -e "ELASTIC_USERNAME=admin"  -e "ELASTIC_PASSWORD=root" -e "ES_JAVA_OPTS=-Xms512m -Xmx1024m" elasticsearch:8.12.1
+    docker run -d --name elasticsearch --net eCommerce-network -p 9200:9200 -p 9300:9300 -e "xpack.security.enabled=false" -e "xpack.security.transport.ssl.enabled=false" -e "discovery.type=single-node" -e "ELASTIC_USERNAME=admin"  -e "ELASTIC_PASSWORD=root" -e "ES_JAVA_OPTS=-Xms512m -Xmx1024m" elasticsearch:8.12.1
 ```
 
 ```bash
-    docker run -d --name kibana --net java13-network -p 5601:5601 kibana:8.12.1
+    docker run -d --name kibana --net eCommerce-network -p 5601:5601 kibana:8.12.1
 ```
 
 
