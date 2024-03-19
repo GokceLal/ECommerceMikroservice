@@ -1,0 +1,12 @@
+server:
+  port: 9091
+
+spring:
+  security:
+    user:
+      name: gokce
+      password: root
+  elasticsearch:
+    uris: http://localhost:9200
+    username: admin
+    password: root

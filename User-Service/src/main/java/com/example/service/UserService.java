@@ -1,15 +1,21 @@
 package com.example.service;
 
 import com.example.domain.User;
+import com.example.dto.request.UserRequestDto;
 import com.example.dto.request.UserSaveRequestDto;
 import com.example.dto.request.UserUpdateRequestDto;
 import com.example.exception.ErrorType;
 import com.example.exception.UserServiceException;
+import com.example.manager.ElasticUserManager;
 import com.example.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,9 +28,9 @@ import java.util.Optional;
 public class UserService {
     private final UserRepository userRepository;
     private final CacheManager cacheManager;
-
+    private final ElasticUserManager userManager;
     public void save(UserSaveRequestDto dto){
-        userRepository.save(User.builder()
+        User user = userRepository.save(User.builder()
                         .userName(dto.getUserName())
                         .email(dto.getEmail())
                         .authId(dto.getAuthId())
@@ -35,7 +41,17 @@ public class UserService {
          * Bu işlem exception fırlatabilir bu nedenle Object null kontrolu
          */
         Objects.requireNonNull(cacheManager.getCache("user-find-all")).clear();
-
+        UserRequestDto userRequestDto = new UserRequestDto(
+                user.getId(),
+                user.getAuthId(),
+                user.getEmail(),
+                user.getPhoto(),
+                user.getUserName(),
+                user.getName(),
+                user.getPhone(),
+                user.getAbout()
+        );
+        userManager.save(userRequestDto);
     }
 
     public void update(UserUpdateRequestDto dto) {
@@ -76,4 +92,31 @@ public class UserService {
         }
         return createString;
     }
-}
+
+    /**
+     *
+     * @param userName
+     * @param page -> sayfa numarası
+     * @param size -> sayfa boyutu
+     * @param sortParameter -> sıralama parametresi yani değişken adı
+     * @param sortDirection -> sıralamanın yönü yani a..z z..a
+     * @return
+     */
+
+        public Page<User> findAllByName(String userName,int page, int size, String sortParameter,String sortDirection) {
+            Pageable pageable ;
+            /**
+             * Bir sayfalama oluşturmak için
+             * 1- bir sayfada kaç kayır görünecek
+             * 2- hangi sayfayı görüntülemek istiyorsun
+             * 3- sıralama yapmak istiyor musun yapıcaksan hangi alanı sıralayacaksın
+             * 4-sıralama kriteri
+             */
+            Sort sort = Sort.by(Sort.Direction.fromString(sortDirection),sortParameter);
+            pageable = PageRequest.of(page,size,sort);
+            Page<User> result = userRepository.findAllByUserNameContaining(userName,pageable);
+            return result;
+        }
+
+    }
+

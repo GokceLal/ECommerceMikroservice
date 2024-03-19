@@ -28,7 +28,15 @@ db.createUser({user: "bilgeUser",pwd: "bilgeUser*",roles: ["readWrite","dbAdmin"
 
 
 
+
 eCommerceMongoDB --> Bizim DockerDestop adı 
+
+
+```
+RabitMq :
+
+docker run -d --name eCommerce-rabbit -p 5672:5672 -p 15672:15672  -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=root rabbitmq:3-management
+```
 
 # KURULUMLAR VE PROJE TEKNOLOJİLERİ
 

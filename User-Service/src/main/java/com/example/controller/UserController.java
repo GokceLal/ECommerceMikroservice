@@ -11,6 +11,7 @@ import com.example.utility.JwtTokenManager;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,9 +27,9 @@ import static com.example.constants.RestApiUrls.*;
 public class UserController {
     private final UserService userService;
     private final JwtTokenManager jwtTokenManager;
-    @Value("${userservice.deger2}")  // lombok olan değil
+    //@Value("${userservice.deger2}")  // lombok olan değil
     private String deger2;
-    @Value("${userservice.listem.iki}")
+    //@Value("${userservice.listem.iki}")
     private String iki;
     @GetMapping("/getApplicationProperties")
 
@@ -75,6 +76,11 @@ public class UserController {
     public  ResponseEntity<String> getString(String ad){
         return ResponseEntity.ok(userService.getString(ad));
 
+    }
+
+    public ResponseEntity<Page<User>> getAllByName(String userName, int page, int size, String sortParameter, String sortDirection){
+
+        return ResponseEntity.ok(userService.findAllByName(userName,page,size,sortParameter,sortDirection));
     }
 
 

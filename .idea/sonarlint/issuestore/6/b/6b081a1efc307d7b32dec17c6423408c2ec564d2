@@ -1,3 +1,5 @@
 
 ¡
-java:S2142J"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(”ı¾8»ÆíÃå1J$df0f7e9b-46a3-4550-91e9-a94b13201eb5
+java:S1488u"^Immediately return this expression instead of assigning it to the temporary variable "result".(åÎ ¯8°Éé­æ1J$c04d4819-9b69-46b9-813c-9867d3fee9aa
+¡
+java:S2142Z"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(”ı¾8ÁÉé­æ1J$ad580ebd-9667-45ee-be4b-fc83684e85cd

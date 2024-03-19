@@ -1,5 +1,5 @@
 
 „
-java:S3457%"AFormat specifiers should be used instead of string concatenation.(¼ù†•8ìÅò³å1J$89ce80ec-da18-4159-a651-f2c78ab00fb5
-m	java:S106%"+Replace this use of System.out by a logger.(¼ù†•8ìÅò³å1J$f630a2ee-e80c-4310-905f-2c3bc7daf938
-~	java:S125<"<This block of commented-out lines of code should be removed.(Ÿ”Ä8ïÅò³å1J$3b146090-e180-4b80-be39-ff0e54230e99
+java:S3457&"AFormat specifiers should be used instead of string concatenation.(¼ù†•8Óóä­æ1J$d0fa6776-c953-41cf-97a2-da9f480c814e
+m	java:S106&"+Replace this use of System.out by a logger.(¼ù†•8Ôóä­æ1J$8428fce6-852c-431b-93f7-af9177ae6659
+~	java:S125="<This block of commented-out lines of code should be removed.(Ÿ”Ä8×óä­æ1J$f7f47e51-8991-415a-a862-4dec1f4f3801
